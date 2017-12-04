@@ -57,3 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# Build
+build/
+lib/
+es/
+dist/
+public/js/
