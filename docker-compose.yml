@@ -1,0 +1,10 @@
+version: '2'
+services:
+  server:
+    build: docker/node
+    ports:
+      - '3002:80'
+  client:
+    build: nginx/node
+    ports:
+      - '3002:80'

@@ -6,10 +6,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import { renderRoutes } from 'react-router-config';
 import store from './store';
 import history from './history';
-import routes from './routes';
+import routes from '../common/routes';
 import MuiProvider from './Components/MuiProvider';
-
-console.log('env', process.env);
 
 ReactDOM.hydrate(
   <Provider store={store}>

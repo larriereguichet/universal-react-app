@@ -1,4 +1,5 @@
 import { routerMiddleware } from 'react-router-redux';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { createLogger } from 'redux-logger';
 import history from './history';
 import configureStore from '../common/configureStore';

@@ -6,9 +6,10 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 COPY package.json package-lock.json /home/node/app/
 
 WORKDIR /home/node/app
-RUN npm install
+RUN npm i -q && \
+    npm run build:server
 
 EXPOSE 3000
 USER node
 
-CMD ["node","index.js"]
+CMD ["node", "dist/server.js"]

@@ -1,3 +1,4 @@
+import path from 'path';
 import express from 'express';
 import helmet from 'helmet';
 import appHandler from './handlers/app';
@@ -8,6 +9,8 @@ const { PORT, NODE_ENV } = process.env;
 const app = express();
 
 app.use(helmet());
+
+app.use(express.static(path.resolve('./public'), { index: false }));
 
 if (NODE_ENV !== 'production') {
   app.use(devMiddleware);

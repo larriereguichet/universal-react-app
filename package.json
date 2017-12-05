@@ -9,27 +9,32 @@
     "port": "3001"
   },
   "scripts": {
-    "start": "if [ \"$NODE_ENV\" = \"production\" ]; then npm run start:prod; else npm run start:dev; fi;",
-    "start:dev": "BABEL_ENV=development webpack --config=webpack.server.js --watch",
-    "client:dev": "BABEL_ENV=development webpack --config=webpack.client.js",
+    "start": "npm run build:server",
+    "build:server": "webpack --config=webpack.server.babel.js",
+    "build:client": "webpack --config=webpack.client.babel.js",
     "start:prod": "node dist/server.js",
     "prettier": "prettier-eslint --write --list-different \"@(src|test)/**/*.js\" \"example/src/**/*.js\"",
     "fix": "eslint --fix \"@(src|test)/**/*.js\""
   },
-  "author": "",
+  "author": "lutangar <johan.dufour@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.32",
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/register": "^7.0.0-beta.34",
     "babel-eslint": "^8.0.2",
     "babel-loader": "^8.0.0-beta.0",
-    "babel-preset-lag": "^0.1.1",
+    "babel-preset-lag": "^0.1.2",
     "eslint": "^4.12.0",
     "eslint-config-lag": "0.0.6",
     "eslint-loader": "^1.9.0",
+    "export-npm-package-config": "0.0.3",
+    "nodemon": "^1.12.1",
     "nodemon-webpack-plugin": "^0.1.5",
     "prettier-eslint-cli": "^4.4.0",
+    "progress-bar-webpack-plugin": "^1.10.0",
     "redux-logger": "^3.0.6",
-    "webpack": "^3.8.1",
+    "webpack": "^3.10.0",
+    "webpack-config-utils": "^2.3.0",
     "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-node-externals": "^1.6.0"
@@ -42,7 +47,6 @@
     "jss-preset-default": "^4.0.1",
     "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "^1.0.0-beta.17",
-    "nodemon": "^1.12.1",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
@@ -56,7 +60,6 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "sqwish": "^0.2.2",
-    "typeface-roboto": "0.0.45",
-    "uuid": "^3.1.0"
+    "typeface-roboto": "0.0.45"
   }
 }

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 
 class Counter extends PureComponent {
   static propTypes = {

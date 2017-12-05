@@ -1,0 +1,47 @@
+---
+
+- hosts: production
+
+  tasks:
+    - name: Initialize the deploy root and gather facts
+      deploy_helper:
+        path: "{{ deploy_path }}"
+        state: present
+
+    # Traffic must be authorize to get out on 22 port
+    - name: Clone the project to the new release folder
+      git:
+        repo: "{{ git_repository }}"
+        dest: "{{ deploy_helper.new_release_path }}"
+        version: "{{ git_version }}"
+        accept_hostkey: yes
+
+    - name: Add an unfinished file, to allow cleanup on successful finalize
+      file:
+        path: "{{ deploy_helper.new_release_path }}/{{ deploy_helper.unfinished_filename }}"
+        state: touch
+
+    - name: Set node environment variables
+      shell: "npm config set vanity.show:{{ item.key }} {{ item.value }}"
+      with_dict: "{{ npm_env_variables }}"
+      args:
+        chdir: "{{ deploy_helper.new_release_path }}"
+
+    - name: Stop the app container
+      command: docker-compose stop app
+      args:
+        chdir: "{{ deploy_helper.current_path }}"
+
+    - name: Build the new app container
+      docker_service:
+        project_src: "{{ deploy_helper.new_release_path }}"
+        files:
+          - docker-compose.yml
+        pull: yes
+        state: present
+
+    - name: Finalize the deploy, removing the unfinished file and switching the symlink
+      deploy_helper:
+        path: "{{ deploy_path }}"
+        release: "{{ deploy_helper.new_release }}"
+        state: finalize

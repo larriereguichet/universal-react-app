@@ -10,13 +10,17 @@ import { MuiThemeProvider } from 'material-ui/styles';
 import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
 import { Helmet } from 'react-helmet';
 import theme from '../../common/theme';
+import routes from '../../common/routes';
 import StaticRouter from '../Components/StaticRouter';
-import routes from '../routes';
 import renderHtml from '../renderers/Html';
 import store from '../store';
 import history from '../history';
 
-export default (req, res) => {
+export default (req, res, next) => {
+  if (!routes.some(({ path }) => req.url === path)) {
+    next();
+  }
+
   // Create a sheetsRegistry instance.
   const sheetsRegistry = new SheetsRegistry();
 
@@ -34,7 +38,6 @@ export default (req, res) => {
   //   ctx.redirect(ctx.history.location.pathname)
   // } else {
 
-  console.log(req.url);
   store.dispatch(replace(req.url));
 
   if (context.url) {
