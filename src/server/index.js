@@ -5,7 +5,7 @@ import appHandler from './handlers/app';
 import notFoundHandler from './handlers/notFound';
 import devMiddleware from './middlewares/dev';
 
-const { PORT, NODE_ENV } = process.env;
+const { npm_package_config_port: PORT, NODE_ENV } = process.env;
 const app = express();
 
 app.use(helmet());

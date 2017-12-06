@@ -4,7 +4,6 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 import nodeExternals from 'webpack-node-externals';
 import NodemonPlugin from 'nodemon-webpack-plugin';
-import extractPackageConfig from 'export-npm-package-config';
 
 export default (env = {}) => {
   const { ifProduction, ifNotProduction } = getIfUtils(env);
@@ -29,6 +28,7 @@ export default (env = {}) => {
           include: [
             resolve('./src/common/'),
             resolve('./src/server/'),
+            resolve('./webpack.server.babel.js'),
           ],
         },
         {
@@ -49,9 +49,6 @@ export default (env = {}) => {
     plugins: removeEmpty([
       new ProgressBarPlugin(),
       new webpack.IgnorePlugin(/\.(scss|css|less)$/),
-      new webpack.DefinePlugin({
-        process: { env: extractPackageConfig(env) }
-      }),
       ifProduction(new webpack.optimize.DedupePlugin()),
       ifProduction(new webpack.optimize.OccurrenceOrderPlugin()),
       ifNotProduction(new webpack.HotModuleReplacementPlugin()),

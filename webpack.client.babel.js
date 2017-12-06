@@ -22,6 +22,7 @@ export default (env = {}) => {
           use: 'eslint-loader',
           include: [
             resolve('./src/client/'),
+            resolve('./webpack.client.babel.js'),
           ],
         },
         {
@@ -40,9 +41,7 @@ export default (env = {}) => {
     },
     plugins: removeEmpty([
       new ProgressBarPlugin(),
-      new webpack.DefinePlugin({
-        process: { env: extractPackageConfig(env) }
-      }),
+      new webpack.DefinePlugin(extractPackageConfig(env)),
       ifProduction(new webpack.optimize.DedupePlugin()), // deduplicate similar code
       ifProduction(new webpack.optimize.OccurrenceOrderPlugin()),
       ifProduction(new webpack.optimize.AggressiveMergingPlugin()), // merge chunks

@@ -27,7 +27,7 @@
     "eslint": "^4.12.0",
     "eslint-config-lag": "0.0.6",
     "eslint-loader": "^1.9.0",
-    "export-npm-package-config": "0.0.3",
+    "extract-npm-package-config": "^0.1.2",
     "nodemon": "^1.12.1",
     "nodemon-webpack-plugin": "^0.1.5",
     "prettier-eslint-cli": "^4.4.0",
