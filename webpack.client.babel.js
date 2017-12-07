@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import { resolve } from 'path';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
-import extractPackageConfig from 'export-npm-package-config';
+import extractPackageConfig from 'extract-npm-package-config';
 
 export default (env = {}) => {
   const { ifProduction, ifNotProduction } = getIfUtils(env);

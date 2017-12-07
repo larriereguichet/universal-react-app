@@ -1,7 +1,7 @@
 {
   "name": "universal-react-app",
   "version": "0.1.0",
-  "description": "",
+  "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
     "scheme": "http",
@@ -11,10 +11,16 @@
   "scripts": {
     "start": "npm run build:server",
     "build:server": "webpack --config=webpack.server.babel.js",
+    "build:server:prod": "webpack --config=webpack.server.babel.js --env.production",
     "build:client": "webpack --config=webpack.client.babel.js",
+    "build:client:prod": "webpack --config=webpack.client.babel.js --env.production",
     "start:prod": "node dist/server.js",
     "prettier": "prettier-eslint --write --list-different \"@(src|test)/**/*.js\" \"example/src/**/*.js\"",
     "fix": "eslint --fix \"@(src|test)/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larriereguichet/universal-react-app.git"
   },
   "author": "lutangar <johan.dufour@gmail.com>",
   "license": "MIT",
@@ -59,6 +65,7 @@
     "react-router-redux": "^5.0.0-alpha.8",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
+    "reset-jss": "^0.1.0",
     "sqwish": "^0.2.2",
     "typeface-roboto": "0.0.45"
   }

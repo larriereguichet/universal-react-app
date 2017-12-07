@@ -1,4 +1,7 @@
+import reset from 'reset-jss';
+
 export default theme => ({
+  ...reset,
   root: {
     width: '100%',
     marginTop: 0,
