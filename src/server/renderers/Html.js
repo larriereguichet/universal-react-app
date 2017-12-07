@@ -15,9 +15,9 @@ export default (html, css, preloadedState, helmet) =>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Source+Code+Pro"/>
         <link rel="manifest" href="/manifest.json">
         <link rel="shortcut icon" href="/favicon.ico">
-        <link rel="icon" type="image/png" sizes="16x16" href="/img/16x16.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/img/32x32.png">
-        <link rel="apple-touch-icon" href="/img/180x180.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png">
+        <link rel="apple-touch-icon" href="/images/180x180.png"/>
         ${helmet.link.toString()}
     </head>
     <body>

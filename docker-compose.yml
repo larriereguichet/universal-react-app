@@ -1,10 +1,17 @@
 version: '2'
 services:
-  server:
-    build: docker/node
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/server/Dockerfile
     ports:
-      - '3002:80'
-  client:
-    build: nginx/node
+      - '3000:3000'
+  frontend:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/client/Dockerfile
     ports:
-      - '3002:80'
+      - "80:80"
+    links:
+      - backend:backend

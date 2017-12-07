@@ -1,0 +1,49 @@
+proxy_cache_path /path/to/cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;
+proxy_cache_key "$scheme$request_method$host$request_uri";
+
+upstream node_server {
+    server localhost:3000;
+}
+
+server {
+    # Path for static files
+    root /usr/share/nginx/html;
+
+    # Specify a charset
+    charset utf-8;
+
+    # Apply only to the css, js, images folder and specific files.
+    location ~ ^/(css|images|js|favicon.ico|manifest.json|browserconfig.xml)/ {
+        include h5bp/directive-only/x-ua-compatible.conf;
+        include h5bp/location/expires.conf;
+        include h5bp/location/protect-system-files.conf;
+    }
+
+    location / {
+        try_files $uri $uri/ @node_server;
+    }
+
+    location @node_server {
+        # caching strategy
+        proxy_cache my_cache;
+        proxy_cache_bypass $http_cache_control
+        proxy_cache_revalidate on;
+        proxy_cache_min_uses 3;
+        proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+        proxy_cache_background_update on;
+        proxy_cache_lock on;
+        add_header X-Proxy-Cache $upstream_cache_status;
+
+        proxy_pass http://node_server;
+
+        # General headers
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        # Following is necessary for Websocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
