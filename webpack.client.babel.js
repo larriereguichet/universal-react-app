@@ -9,7 +9,7 @@ export default (env = {}) => {
 
   return {
     cache: ifNotProduction(),
-    devtool: ifNotProduction('cheap-module-eval-source-map'),
+    devtool: 'cheap-module-eval-source-map',
     entry: resolve('./src/client/index.js'),
     target: 'web',
     watch: false,
@@ -45,14 +45,6 @@ export default (env = {}) => {
       ifProduction(new webpack.optimize.DedupePlugin()), // deduplicate similar code
       ifProduction(new webpack.optimize.OccurrenceOrderPlugin()),
       ifProduction(new webpack.optimize.AggressiveMergingPlugin()), // merge chunks
-      ifProduction(new webpack.optimize.UglifyJsPlugin({
-        compressor: {
-          screw_ie8: true,
-          warnings: false
-        },
-        comments: false,
-        sourceMap: false
-      })),
       ifNotProduction(new webpack.HotModuleReplacementPlugin()),
       ifNotProduction(new webpack.NoEmitOnErrorsPlugin()),
     ]),

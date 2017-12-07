@@ -13,7 +13,7 @@
     "build:server": "webpack --config=webpack.server.babel.js",
     "build:server:prod": "webpack --config=webpack.server.babel.js --env.production",
     "build:client": "webpack --config=webpack.client.babel.js",
-    "build:client:prod": "webpack --config=webpack.client.babel.js --env.production",
+    "build:client:prod": "webpack -p --config=webpack.client.babel.js --env.production",
     "start:prod": "node dist/server.js",
     "prettier": "prettier-eslint --write --list-different \"@(src|test)/**/*.js\" \"example/src/**/*.js\"",
     "fix": "eslint --fix \"@(src|test)/**/*.js\""
