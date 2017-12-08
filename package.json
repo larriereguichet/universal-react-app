@@ -47,7 +47,6 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "bunyan": "^1.8.12",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
     "history": "^4.7.2",
@@ -55,6 +54,7 @@
     "jss-preset-default": "^4.0.1",
     "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "^1.0.0-beta.17",
+    "pino": "^4.10.2",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
