@@ -37,6 +37,7 @@ export default (env = {}) => {
           include: [
             resolve('./src/common/'),
             resolve('./src/server/'),
+            resolve('./webpack.client.babel.js')
           ],
         },
       ]
