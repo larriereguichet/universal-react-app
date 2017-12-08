@@ -1,4 +1,4 @@
-# builder
+# server builder
 FROM node:alpine as builder
 
 ENV NODE_ENV development
@@ -11,7 +11,7 @@ WORKDIR /home/node/app
 RUN npm i && \
     npm run build:server:prod
 
-# app
+# node backend
 FROM node:alpine
 
 ENV NODE_ENV production

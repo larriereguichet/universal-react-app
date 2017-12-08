@@ -1,19 +1,18 @@
-upstream backend {
-    server localhost:3000;
+upstream backend_upstream {
+    server backend:3000;
 }
 
 server {
     listen       80;
     server_name  localhost;
-
-    # Path for static files
     root /usr/share/nginx/html;
 
     # Specify a charset
     charset utf-8;
 
     location / {
-        try_files $uri $uri/ @backend;
+        # try_files $uri $uri/ @backend_location;
+        try_files $uri @backend_location;
     }
 
     # Apply only to the css, js, images folder and specific files.
@@ -23,8 +22,8 @@ server {
         include h5bp/location/protect-system-files.conf;
     }
 
-    location @backend {
-        proxy_pass http://backend;
+    location @backend_location {
+        proxy_pass http://backend_upstream;
 
         # General headers
         proxy_set_header X-Real-IP  $remote_addr;

@@ -14,4 +14,4 @@ services:
     ports:
       - "80:80"
     links:
-      - backend:backend
+      - backend
