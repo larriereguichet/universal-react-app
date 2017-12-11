@@ -3,14 +3,14 @@ services:
   backend:
     build:
       context: .
-      dockerfile: ./docker/server/Dockerfile
+      dockerfile: ./etc/docker/backend/Dockerfile
     ports:
       - '3000:3000'
   frontend:
     restart: always
     build:
       context: .
-      dockerfile: ./docker/client/Dockerfile
+      dockerfile: ./etc/docker/frontend/Dockerfile
     ports:
       - "80:80"
     links:
