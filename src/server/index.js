@@ -26,4 +26,4 @@ app.get('/*', appHandler(logger));
 
 app.use(notFoundHandler(logger));
 
-app.listen(PORT, () => console.info(`Express server listening on port ${PORT}`));
+app.listen(PORT, () => logger.info(`Express server listening on port ${PORT}`));
