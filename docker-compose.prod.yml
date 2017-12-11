@@ -1,0 +1,17 @@
+version: '2'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/server/Dockerfile
+    ports:
+      - '3000:3000'
+  frontend:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/client/Dockerfile
+    ports:
+      - "80:80"
+    links:
+      - backend
