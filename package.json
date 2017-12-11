@@ -67,7 +67,7 @@
     "react-router-redux": "^5.0.0-alpha.8",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
-    "reset-jss": "^0.1.0",
+    "reset-jss": "^1.0.0",
     "sqwish": "^0.2.2",
     "typeface-roboto": "0.0.45"
   }
