@@ -1,6 +1,6 @@
 ---
 
-- hosts: production
+- hosts: "{{env}}"
 
   tasks:
     - name: Initialize the deploy root and gather facts
