@@ -1,20 +1,17 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { renderToString } from 'react-dom/server';
-import { renderRoutes } from 'react-router-config';
+import ReactServer from 'react-dom/server';
 import { replace } from 'react-router-redux';
-import { JssProvider, SheetsRegistry } from 'react-jss';
-import { create } from 'jss';
-import preset from 'jss-preset-default';
-import { MuiThemeProvider } from 'material-ui/styles';
-import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
+import { Provider as StoreProvider } from 'react-redux';
+import { SheetsRegistry } from 'react-jss';
 import { Helmet } from 'react-helmet';
-import theme from '../../common/theme';
 import routes from '../../common/routes';
-import StaticRouter from '../Components/StaticRouter';
 import renderHtml from '../renderers/Html';
 import store from '../store';
+import Router from '../Components/StaticRouter';
 import history from '../history';
+import MuiThemeProviderWrapper from '../../common/Components/MuiThemeProviderWrapper';
+import RouterWrapper from '../../common/Components/RouterWrapper';
+import JssProviderWrapper from '../Components/JssProviderWrapper'
 
 export default logger => (req, res, next) => {
   if (!routes.some(({ path }) => req.url === path)) {
@@ -23,17 +20,7 @@ export default logger => (req, res, next) => {
     return next();
   }
 
-  logger.info(`Request URL ${req.url} is handled by the App.`);
-
-  // Create a sheetsRegistry instance.
   const sheetsRegistry = new SheetsRegistry();
-
-  // Configure JSS
-  const jss = create(preset());
-  // const jss = create({ plugins: [...preset().plugins, rtl()] }); // in-case you're supporting rtl
-
-  jss.options.createGenerateClassName = createGenerateClassName;
-
   const context = {};
 
   // if (isClientRedirect(ctx.history.action)) {
@@ -55,16 +42,19 @@ export default logger => (req, res, next) => {
 
   return res.send(
     renderHtml(
-      renderToString(
-        <JssProvider registry={sheetsRegistry} jss={jss}>
-          <MuiThemeProvider theme={theme} sheetsManager={new Map()}>
-            <Provider store={store}>
-              <StaticRouter location={req.url} context={context} history={history}>
-                {renderRoutes(routes)}
-              </StaticRouter>
-            </Provider>
-          </MuiThemeProvider>
-        </JssProvider>
+      ReactServer.renderToString(
+        <JssProviderWrapper registry={sheetsRegistry}>
+          <MuiThemeProviderWrapper sheetsManager={new Map()}>
+            <StoreProvider store={store}>
+              <RouterWrapper
+                router={Router}
+                history={history}
+                context={context}
+                location={req.url}
+              />
+            </StoreProvider>
+          </MuiThemeProviderWrapper>
+        </JssProviderWrapper>
       ),
       sheetsRegistry.toString(),
       store.getState(),

@@ -1,21 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { Switch } from 'react-router';
-import { ConnectedRouter } from 'react-router-redux';
-import { renderRoutes } from 'react-router-config';
+import { Provider as StoreProvider } from 'react-redux';
+import { ConnectedRouter as Router } from 'react-router-redux';
+import MuiThemeProviderWrapper from '../common/Components/MuiThemeProviderWrapper';
+import RouterWrapper from '../common/Components/RouterWrapper';
 import store from './store';
 import history from './history';
-import routes from '../common/routes';
-import MuiProvider from './Components/MuiProvider';
+
+const removeServiceSideJss = () => {
+  const jssStyles = document.getElementById('jss-server-side');
+  if (jssStyles && jssStyles.parentNode) {
+    jssStyles.parentNode.removeChild(jssStyles);
+  }
+};
 
 ReactDOM.hydrate(
-  <Provider store={store}>
-    <MuiProvider>
-      <ConnectedRouter history={history}>
-        <Switch>{renderRoutes(routes)}</Switch>
-      </ConnectedRouter>
-    </MuiProvider>
-  </Provider>,
+  <MuiThemeProviderWrapper handleDidMount={removeServiceSideJss}>
+    <StoreProvider store={store}>
+      <RouterWrapper router={Router} history={history} />
+    </StoreProvider>
+  </MuiThemeProviderWrapper>,
   document.getElementById('root')
 );
