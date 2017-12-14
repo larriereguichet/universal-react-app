@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -47,6 +47,7 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
+    "compression": "^1.7.1",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
     "history": "^4.7.2",

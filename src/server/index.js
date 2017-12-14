@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import helmet from 'helmet';
+import compression from 'compression';
 import logger from './logger';
 import appHandler from './handlers/app';
 import notFoundHandler from './handlers/notFound';
@@ -10,6 +11,7 @@ const app = express();
 
 logger.info('Started');
 
+app.use(compression());
 app.use(helmet());
 
 app.use(express.static(path.resolve('./public'), { index: false }));
