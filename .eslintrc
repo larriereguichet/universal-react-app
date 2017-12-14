@@ -5,9 +5,5 @@
   ],
   "globals": {
     "console": false
-  },
-  "rules": {
-    "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
-    "import/no-extraneous-dependencies": ["warn"]
   }
 }
