@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -36,6 +36,7 @@
     "extract-npm-package-config": "^0.1.2",
     "nodemon": "^1.12.1",
     "nodemon-webpack-plugin": "^0.1.5",
+    "prettier": "^1.9.2",
     "prettier-eslint-cli": "^4.4.0",
     "progress-bar-webpack-plugin": "^1.10.0",
     "redux-logger": "^3.0.6",
