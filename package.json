@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -31,7 +31,7 @@
     "babel-loader": "^8.0.0-beta.0",
     "babel-preset-lag": "^0.1.2",
     "eslint": "^4.12.0",
-    "eslint-config-lag": "0.0.8",
+    "eslint-config-lag": "0.0.9",
     "eslint-loader": "^1.9.0",
     "extract-npm-package-config": "^0.1.2",
     "nodemon": "^1.12.1",
