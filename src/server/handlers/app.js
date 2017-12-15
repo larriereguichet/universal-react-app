@@ -13,9 +13,9 @@ import renderHtml from '../renderers/Html';
 import store from '../store';
 import history from '../history';
 
-export default logger => (req, res, next) => {
+export default (req, res, next) => {
   if (!routes.some(({ path }) => req.url === path)) {
-    logger.info(`Request URL ${req.url} is not handled by the App.`);
+    req.log.info(`Request URL ${req.url} is not handled by the App.`);
 
     return next();
   }
@@ -32,13 +32,11 @@ export default logger => (req, res, next) => {
   store.dispatch(replace(req.url));
 
   if (context.url) {
-    logger.info(`While the requested URL was ${req.url} found URL ${context.url} in the context.`);
+    req.log.info(`While the requested URL was ${req.url} found URL ${context.url} in the context.`);
     // Somewhere a `<Redirect>` was rendered
     res.redirect(context.status || 302, context.url);
     res.end();
   }
-
-  logger.info(`Res is going to be sent`);
 
   return res.send(
     renderHtml(
