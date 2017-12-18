@@ -1,0 +1,34 @@
+{
+  "name": "babel-preset-lag",
+  "version": "0.1.2",
+  "description": "Babel preset for universal react app used @larriereguichet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larriereguichet/universal-react-app.git"
+  },
+  "keywords": [
+    "babel",
+    "preset",
+    "universal",
+    "react"
+  ],
+  "author": "lutangar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/larriereguichet/universal-react-app/issues"
+  },
+  "homepage": "https://github.com/larriereguichet/universal-react-app/tree/master/packages/babel-preset#readme",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.34",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.34",
+    "@babel/preset-env": "^7.0.0-beta.34",
+    "@babel/preset-react": "^7.0.0-beta.34"
+  },
+  "peerDependencies": {
+    "@babel/core": "7.0.0-beta.34"
+  }
+}

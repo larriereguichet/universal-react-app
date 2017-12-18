@@ -1,0 +1,45 @@
+{
+  "name": "react-dev-middleware",
+  "version": "1.0.0",
+  "description": "Express middleware providing the development features.",
+  "main": "lib/index.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "lint": "prettier-eslint --write --list-different \"@(src|test)/**/*.js\" \"example/src/**/*.js\"",
+    "test": "NODE_ENV=test mocha --recursive",
+    "clean": "rimraf dist es lib",
+    "prebuild": "npm run clean",
+    "build:cjs": "BABEL_ENV=cjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build": "npm run build:cjs && npm run build:es"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larriereguichet/react-dev-middleware.git"
+  },
+  "author": "lutangar <johan.dufour@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/larriereguichet/react-dev-middleware/issues"
+  },
+  "homepage": "https://github.com/larriereguichet/react-dev-middleware#readme",
+  "dependencies": {
+    "lodash.isfunction": "^3.0.8",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.1",
+    "webpack-hot-middleware": "^2.21.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.35",
+    "@babel/core": "^7.0.0-beta.35",
+    "@babel/register": "^7.0.0-beta.35",
+    "babel-preset-lag": "^0.1.2",
+    "cross-env": "^5.1.1",
+    "eslint-config-lag": "0.0.9",
+    "expect": "^22.0.0",
+    "mocha": "^4.0.1",
+    "prettier": "^1.9.2",
+    "prettier-eslint-cli": "^4.6.1",
+    "rimraf": "^2.6.2"
+  }
+}
