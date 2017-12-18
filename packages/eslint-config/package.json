@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/larriereguichet/eslint-config.git"
+    "url": "git+https://github.com/larriereguichet/universal-react-app.git"
   },
   "keywords": [
     "eslint",
@@ -18,9 +18,9 @@
   "author": "lutangar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/larriereguichet/eslint-config/issues"
+    "url": "https://github.com/larriereguichet/universal-react-app/issues"
   },
-  "homepage": "https://github.com/larriereguichet/eslint-config#readme",
+  "homepage": "https://github.com/larriereguichet/universal-react-app/tree/master/packages/eslint-config#readme",
   "dependencies": {
     "eslint": "^4.12.0",
     "eslint-config-airbnb": "^16.1.0",
