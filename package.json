@@ -15,8 +15,11 @@
     "build:client": "webpack --config=webpack.client.babel.js",
     "build:client:prod": "webpack --config=webpack.client.babel.js --env.production",
     "start:prod": "node dist/server.js",
-    "prettier": "prettier-eslint --write --list-different \"@(src|test)/**/*.js\" \"example/src/**/*.js\"",
-    "fix": "eslint --fix \"@(src|test)/**/*.js\""
+    "prettier": "prettier-eslint --write --list-different \"@(src|test)/**/*.js\" \"example/src/**/*.js\" \"@packages/(src|test)/**/*.js\"",
+    "lint": "npm run prettier",
+    "pretest": "npm run lint",
+    "test": "NODE_ENV=test mocha \"packages/*/test/**/*.js\" --compilers js:@babel/register",
+    "prepare": "lerna bootstrap"
   },
   "repository": {
     "type": "git",
@@ -33,8 +36,10 @@
     "eslint": "^4.12.0",
     "eslint-config-lag": "0.0.9",
     "eslint-loader": "^1.9.0",
+    "expect": "^22.0.0",
     "extract-npm-package-config": "^0.1.2",
     "lerna": "^2.5.1",
+    "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "nodemon-webpack-plugin": "^0.1.5",
     "prettier": "^1.9.2",

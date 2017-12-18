@@ -63,3 +63,5 @@ lib/
 es/
 dist/
 public/js/
+
+package-lock.json
