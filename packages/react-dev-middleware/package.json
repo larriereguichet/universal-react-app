@@ -1,6 +1,6 @@
 {
   "name": "react-dev-middleware",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Express middleware providing the development features.",
   "main": "lib/index.js",
   "scripts": {
@@ -33,9 +33,9 @@
     "@babel/cli": "^7.0.0-beta.35",
     "@babel/core": "^7.0.0-beta.35",
     "@babel/register": "^7.0.0-beta.35",
-    "babel-preset-lag": "^1.0.0",
+    "babel-preset-lag": "^1.1.0",
     "cross-env": "^5.1.1",
-    "eslint-config-lag": "^1.0.0",
+    "eslint-config-lag": "^1.1.0",
     "expect": "^22.0.0",
     "mocha": "^4.0.1",
     "prettier": "^1.9.2",
