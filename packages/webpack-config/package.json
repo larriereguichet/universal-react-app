@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-lag",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Webpack configuration used @larrierguichet",
   "main": "lib/index.js",
   "config": {
