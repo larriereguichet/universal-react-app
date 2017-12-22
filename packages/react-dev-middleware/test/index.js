@@ -1,8 +1,8 @@
 import expect from 'expect';
-import createDevMiddleware, { createConfig } from '../lib/index.js';
+import createDevMiddleware, { createConfig } from '../lib';
 
 const defaultConfig = { entry: './index.js' };
-const configCreator = env => defaultConfig;
+const configCreator = () => defaultConfig;
 
 describe('react-dev-middleware', () => {
   describe('create config', () => {

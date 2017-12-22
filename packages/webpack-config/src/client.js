@@ -21,10 +21,7 @@ export default (env = {}) => {
           enforce: 'pre',
           test: /\.js$/,
           use: 'eslint-loader',
-          include: [
-            resolve('./src/client/'),
-            resolve('./webpack.client.babel.js'),
-          ],
+          include: [resolve('./src/client/'), resolve('./webpack.client.babel.js')],
         },
         {
           test: /\.js$/,
@@ -34,8 +31,8 @@ export default (env = {}) => {
             resolve('./src/client/'),
             resolve('./webpack.client.babel.js'),
           ],
-        }
-      ]
+        },
+      ],
     },
     output: {
       path: resolve('./dist'),
@@ -50,16 +47,18 @@ export default (env = {}) => {
       ifProduction(new webpack.optimize.DedupePlugin()), // deduplicate similar code
       ifProduction(new webpack.optimize.OccurrenceOrderPlugin()),
       ifProduction(new webpack.optimize.AggressiveMergingPlugin()), // merge chunks
-      ifProduction(new UglifyJsPlugin({
-        uglifyOptions: {
-          ie8: false,
-          warnings: false,
-          compress: true,
-        },
-        sourceMap: false
-      })),
+      ifProduction(
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            ie8: false,
+            warnings: false,
+            compress: true,
+          },
+          sourceMap: false,
+        })
+      ),
       ifNotProduction(new webpack.HotModuleReplacementPlugin()),
       ifNotProduction(new webpack.NoEmitOnErrorsPlugin()),
     ]),
-  }
-}
+  };
+};

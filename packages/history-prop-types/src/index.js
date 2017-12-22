@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export const locationPropTypes = {
   pathname: PropTypes.string.isRequired,
@@ -6,7 +6,7 @@ export const locationPropTypes = {
   hash: PropTypes.string.isRequired,
   state: PropTypes.any,
   key: PropTypes.string,
-}
+};
 
 export const historyPropTypes = {
   length: PropTypes.number.isRequired,
@@ -23,4 +23,4 @@ export const historyPropTypes = {
   canGo: PropTypes.func,
   block: PropTypes.func.isRequired,
   listen: PropTypes.func.isRequired,
-}
+};

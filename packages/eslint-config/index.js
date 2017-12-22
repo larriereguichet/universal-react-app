@@ -1,14 +1,10 @@
-'use strict'
-
 module.exports = {
-  'extends': [
-    './rules'
-  ].map(require.resolve),
-  'globals': {
-    'console': false
+  extends: ['./rules'].map(require.resolve),
+  globals: {
+    console: false,
   },
-  'rules': {
+  rules: {
     'prettier/prettier': ['warn'],
-    'no-console': ['warn']
-  }
-}
+    'no-console': ['warn'],
+  },
+};

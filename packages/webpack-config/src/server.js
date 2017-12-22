@@ -37,10 +37,10 @@ export default (env = {}) => {
           include: [
             resolve('./src/common/'),
             resolve('./src/server/'),
-            resolve('./webpack.client.babel.js')
+            resolve('./webpack.client.babel.js'),
           ],
         },
-      ]
+      ],
     },
     output: {
       path: resolve('./dist'),
@@ -54,11 +54,13 @@ export default (env = {}) => {
       ifProduction(new webpack.optimize.OccurrenceOrderPlugin()),
       ifNotProduction(new webpack.HotModuleReplacementPlugin()),
       ifNotProduction(new webpack.NoEmitOnErrorsPlugin()),
-      ifNotProduction(new NodemonPlugin({
-        watch: resolve('./dist'),
-        ignore: ['*.js.map'],
-        verbose: false,
-      })),
+      ifNotProduction(
+        new NodemonPlugin({
+          watch: resolve('./dist'),
+          ignore: ['*.js.map'],
+          verbose: false,
+        })
+      ),
     ]),
-  }
-}
+  };
+};
