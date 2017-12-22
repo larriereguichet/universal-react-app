@@ -1,7 +1,7 @@
 import Home from './Pages/Home';
 import Hello from './Pages/Hello';
 
-export default [
+const routes = [
   {
     component: Home,
     path: '/',
@@ -13,3 +13,7 @@ export default [
     exact: true,
   },
 ];
+
+export default routes;
+
+export const getPaths = routes.map(({ path }) => path);
