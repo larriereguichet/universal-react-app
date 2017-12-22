@@ -3,6 +3,8 @@
   "version": "1.4.1",
   "description": "Express middleware providing the development features.",
   "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
   "scripts": {
     "clean": "rimraf dist es lib",
     "prebuild": "npm run clean",
