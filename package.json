@@ -15,8 +15,8 @@
     "build:client": "webpack --config=webpack.client.babel.js",
     "build:client:prod": "webpack --config=webpack.client.babel.js --env.production",
     "start:prod": "node dist/server.js",
-    "fix": "prettier-eslint --write --list-different \"@(src|test)/**/*.js\" \"packages/*/@(src|test|rules)/**/*.js\" \"packages/*/index.js\"",
-    "lint": "eslint \"@(src|test)/**/*.js\" \"packages/*/@(src|test|rules)/**/*.js\" \"packages/*/index.js\"",
+    "fix": "prettier-eslint --write --list-different \"@(src|test)/**/*.js\" \"./webpack.server.babel.js\" \"packages/*/@(src|test|rules)/**/*.js\" \"packages/*/index.js\"",
+    "lint": "eslint \"@(src|test)/**/*.js\" \"./webpack.server.babel.js\" \"packages/*/@(src|test|rules)/**/*.js\" \"packages/*/index.js\"",
     "pretest": "npm run fix",
     "test": "NODE_ENV=test mocha \"packages/*/test/**/*.js\" --compilers js:@babel/register"
   },
@@ -49,19 +49,15 @@
     "webpack-hot-middleware": "^2.21.0"
   },
   "dependencies": {
-    "compression": "^1.7.1",
-    "express": "^4.16.2",
-    "helmet": "^3.9.0",
     "history": "^4.7.2",
     "jss": "^9.3.3",
     "jss-preset-default": "^4.0.1",
     "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "^1.0.0-beta.17",
-    "pino": "^4.10.2",
-    "pino-http": "^3.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.1.1",
+    "react-express-server": "^1.4.1",
     "react-helmet": "^5.2.0",
     "react-jss": "^8.1.0",
     "react-redux": "^5.0.6",
@@ -72,7 +68,6 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "reset-jss": "^1.0.0",
-    "sqwish": "^0.2.2",
     "typeface-roboto": "0.0.45"
   }
 }

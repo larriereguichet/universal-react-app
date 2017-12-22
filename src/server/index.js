@@ -1,34 +1,59 @@
-import path from 'path';
-import express from 'express';
-import helmet from 'helmet';
-import compression from 'compression';
-import pinoHttp from 'pino-http';
-import logger, { serializers } from './logger';
-import appHandler from './handlers/app';
-import notFoundHandler from './handlers/notFound';
+import React from 'react';
+import { Provider as StoreProvider } from 'react-redux';
+import ReactServer from 'react-dom/server';
+import { replace } from 'react-router-redux';
+import { Helmet } from 'react-helmet';
+import {
+  HelmetHtml,
+  StaticRouter,
+  redirectHandler,
+  Root,
+  ServerSideJSS,
+  PreloadedState,
+} from 'react-express-server';
+import { JssProvider } from 'react-jss';
+import { create, SheetsRegistry } from 'jss';
+import preset from 'jss-preset-default';
+import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
+import RouterWrapper from '../common/Components/RouterWrapper';
+import MuiThemeProviderWrapper from '../common/Components/MuiThemeProviderWrapper';
+import store from './store';
+import history from './history';
 
-const { npm_package_config_port: PORT, NODE_ENV } = process.env;
-const app = express();
+export default (req, res, next) => {
+  const jss = create({
+    ...preset(),
+    createGenerateClassName,
+  });
+  const sheetsRegistry = new SheetsRegistry();
 
-app.use(
-  pinoHttp({
-    logger,
-    serializers,
-  })
-);
-app.use(compression());
-app.use(helmet());
+  store.dispatch(replace(req.url));
 
-app.use(express.static(path.resolve('./public'), { index: false }));
+  const html = ReactServer.renderToString(
+    <JssProvider jss={jss} registry={sheetsRegistry}>
+      <MuiThemeProviderWrapper sheetsManager={new Map()}>
+        <StoreProvider store={store}>
+          <RouterWrapper
+            router={StaticRouter}
+            history={history}
+            context={req.context}
+            location={req.url}
+          />
+        </StoreProvider>
+      </MuiThemeProviderWrapper>
+    </JssProvider>
+  );
 
-if (NODE_ENV !== 'production') {
-  // eslint-disable-next-line global-require
-  const devMiddleware = require('./middlewares/dev').default;
-  app.use(devMiddleware);
-}
+  redirectHandler(req, res, next);
 
-app.get('/*', appHandler);
-
-app.use(notFoundHandler);
-
-app.listen(PORT, () => logger.info(`Express server listening on port ${PORT}`));
+  return res.send(
+    ReactServer.renderToStaticMarkup(
+      <HelmetHtml helmet={Helmet.renderStatic()}>
+        <Root html={html} />
+        <PreloadedState state={store.getState()} />
+        <ServerSideJSS sheetsRegistry={sheetsRegistry} />
+        <script type="text/javascript" src="client.js" />
+      </HelmetHtml>
+    )
+  );
+};
