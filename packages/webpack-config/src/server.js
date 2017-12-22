@@ -11,7 +11,7 @@ export default (env = {}) => {
   return {
     cache: ifNotProduction(),
     devtool: ifProduction('hidden-source-map', 'cheap-module-eval-source-map'),
-    entry: resolve('./src/server/index.js'),
+    entry: resolve('./src/server/server.js'),
     target: 'node',
     watch: ifNotProduction(),
     stats: ifProduction('errors-only', 'minimal'),
