@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -44,7 +44,7 @@
     "react-scripts": "^1.0.17",
     "redux-logger": "^3.0.6",
     "webpack": "^3.10.0",
-    "webpack-config-lag": "^1.2.0",
+    "webpack-config-lag": "^1.4.1",
     "webpack-dev-middleware": "^2.0.1",
     "webpack-hot-middleware": "^2.21.0"
   },
