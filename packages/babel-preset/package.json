@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-lag",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Babel preset for universal react app used @larriereguichet",
   "main": "index.js",
   "scripts": {

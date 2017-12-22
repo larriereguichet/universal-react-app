@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -44,7 +44,7 @@
     "react-scripts": "^1.0.17",
     "redux-logger": "^3.0.6",
     "webpack": "^3.10.0",
-    "webpack-config-lag": "^1.4.1",
+    "webpack-config-lag": "^1.5.0",
     "webpack-dev-middleware": "^2.0.1",
     "webpack-hot-middleware": "^2.21.0"
   },
@@ -57,7 +57,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.1.1",
-    "react-express-server": "^1.4.1",
+    "react-express-server": "^1.5.0",
     "react-helmet": "^5.2.0",
     "react-jss": "^8.1.0",
     "react-redux": "^5.0.6",
