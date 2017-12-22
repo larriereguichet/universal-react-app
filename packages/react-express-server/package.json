@@ -3,6 +3,8 @@
   "version": "1.4.1",
   "description": "An opinionated express server to render React apps",
   "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
   "scripts": {
     "clean": "rimraf dist es lib",
     "prebuild": "npm run clean",
@@ -29,8 +31,6 @@
   "dependencies": {
     "compression": "^1.7.1",
     "express": "^4.16.2",
-    "express-react-views": "^0.10.4",
-    "helmet": "^3.9.0",
     "history": "^4.7.2",
     "history-prop-types": "^1.4.1",
     "pino": "^4.10.2",

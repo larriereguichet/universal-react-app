@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/html-has-lang, react/no-danger */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import PreloadedState from './PreloadedState';
+import ServerSideJSS from './ServerSideJSS';
 
 class Html extends PureComponent {
   static propTypes = {
-    html: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     base: PropTypes.node,
     bodyAttributes: PropTypes.objectOf(PropTypes.string),
     htmlAttributes: PropTypes.objectOf(PropTypes.string),
@@ -13,7 +15,7 @@ class Html extends PureComponent {
     noscript: PropTypes.arrayOf(PropTypes.node),
     script: PropTypes.arrayOf(PropTypes.node),
     style: PropTypes.arrayOf(PropTypes.node),
-    title: PropTypes.node.isRequired,
+    title: PropTypes.node,
   };
 
   static defaultProps = {
@@ -37,7 +39,7 @@ class Html extends PureComponent {
           {this.props.base}
         </head>
         <body {...this.props.bodyAttributes}>
-          <div id="root" dangerouslySetInnerHTML={{ __html: this.props.html }} />
+          {this.props.children}
           {this.props.style}
           {this.props.script}
         </body>

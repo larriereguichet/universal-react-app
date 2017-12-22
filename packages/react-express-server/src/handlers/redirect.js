@@ -7,6 +7,4 @@ export default (req, res, next) => {
     res.redirect(req.context.status || 302, req.context.url);
     res.end();
   }
-
-  next();
 };
