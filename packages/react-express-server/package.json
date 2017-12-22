@@ -1,6 +1,6 @@
 {
   "name": "react-express-server",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "An opinionated express server to render React apps",
   "main": "lib/index.js",
   "module": "es/index.js",

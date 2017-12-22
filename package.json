@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -57,7 +57,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.1.1",
-    "react-express-server": "^1.5.0",
+    "react-express-server": "^1.5.1",
     "react-helmet": "^5.2.0",
     "react-jss": "^8.1.0",
     "react-redux": "^5.0.6",
