@@ -7,15 +7,16 @@ import RouterWrapper from '../common/Components/RouterWrapper';
 import store from './store';
 import history from './history';
 
-const removeServiceSideJss = () => {
-  const jssStyles = document.getElementById('jss-server-side');
-  if (jssStyles && jssStyles.parentNode) {
-    jssStyles.parentNode.removeChild(jssStyles);
+const removeElement = element => {
+  if (element && element.parentNode) {
+    element.parentNode.removeChild(element);
   }
 };
 
 ReactDOM.hydrate(
-  <MuiThemeProviderWrapper handleDidMount={removeServiceSideJss}>
+  <MuiThemeProviderWrapper
+    handleDidMount={removeElement(document.getElementById('jss-server-side'))}
+  >
     <StoreProvider store={store}>
       <RouterWrapper router={Router} history={history} />
     </StoreProvider>
