@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
