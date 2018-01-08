@@ -7,7 +7,7 @@ import {
   HelmetHtml,
   StaticRouter,
   redirectHandler,
-  Root,
+  AppContainer,
   ServerSideJSS,
   PreloadedState,
 } from 'react-express-server';
@@ -15,8 +15,8 @@ import { JssProvider } from 'react-jss';
 import { create, SheetsRegistry } from 'jss';
 import preset from 'jss-preset-default';
 import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
-import RouterWrapper from '../common/Components/RouterWrapper';
 import MuiThemeProviderWrapper from '../common/Components/MuiThemeProviderWrapper';
+import App from '../common/Components/App';
 import store from './store';
 import history from './history';
 
@@ -33,12 +33,9 @@ export default (req, res, next) => {
     <JssProvider jss={jss} registry={sheetsRegistry}>
       <MuiThemeProviderWrapper sheetsManager={new Map()}>
         <StoreProvider store={store}>
-          <RouterWrapper
-            router={StaticRouter}
-            history={history}
-            context={req.context}
-            location={req.url}
-          />
+          <StaticRouter history={history} context={req.context} location={req.url}>
+            <App />
+          </StaticRouter>
         </StoreProvider>
       </MuiThemeProviderWrapper>
     </JssProvider>
@@ -49,7 +46,7 @@ export default (req, res, next) => {
   return res.send(
     ReactServer.renderToStaticMarkup(
       <HelmetHtml helmet={Helmet.renderStatic()}>
-        <Root html={html} />
+        <AppContainer html={html} />
         <PreloadedState state={store.getState()} />
         <ServerSideJSS sheetsRegistry={sheetsRegistry} />
         <script type="text/javascript" src="client.js" />
