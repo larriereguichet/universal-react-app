@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "1.5.2",
+  "version": "2.0.0",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -31,17 +31,17 @@
     "@babel/register": "^7.0.0-beta.36",
     "babel-eslint": "^8.0.2",
     "babel-loader": "^8.0.0-beta.0",
-    "babel-preset-lag": "^1.5.0",
+    "babel-preset-lag": "^2.0.0",
     "eslint": "^4.12.0",
     "eslint-config-lag": "0.0.9",
     "eslint-loader": "^1.9.0",
     "lerna": "^2.5.1",
     "prettier": "^1.9.2",
     "prettier-eslint-cli": "^4.4.0",
-    "react-dev-middleware": "^1.5.0",
+    "react-dev-middleware": "^2.0.0",
     "redux-logger": "^3.0.6",
     "webpack": "^3.10.0",
-    "webpack-config-lag": "^1.5.0"
+    "webpack-config-lag": "^2.0.0"
   },
   "dependencies": {
     "history": "^4.7.2",
@@ -52,7 +52,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.1.1",
-    "react-express-server": "^1.5.1",
+    "react-express-server": "^2.0.0",
     "react-helmet": "^5.2.0",
     "react-jss": "^8.1.0",
     "react-redux": "^5.0.6",
