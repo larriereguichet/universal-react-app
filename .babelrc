@@ -1,3 +1,4 @@
 {
-  "presets": ["lag"]
+  "presets": ["lag"],
+  "ignore": ["packages/*"]
 }
