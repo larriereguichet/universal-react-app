@@ -16,5 +16,10 @@ export default () => {
     next();
   });
 
+  process.on('SIGINT', () => {
+    logger.info(`react-express-server gracefully shutting down from SIGINT (Ctrl-C)`);
+    process.exit(0);
+  });
+
   return app;
 };
