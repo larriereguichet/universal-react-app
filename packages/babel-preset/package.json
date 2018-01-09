@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-lag",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Babel preset for universal react app used @larriereguichet",
   "main": "index.js",
   "scripts": {
@@ -23,14 +23,14 @@
   },
   "homepage": "https://github.com/larriereguichet/universal-react-app/tree/master/packages/babel-preset#readme",
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.36",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.36",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0-beta.36",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.36",
-    "@babel/preset-env": "^7.0.0-beta.36",
-    "@babel/preset-react": "^7.0.0-beta.36"
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.37",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.37",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0-beta.37",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.37",
+    "@babel/preset-env": "^7.0.0-beta.37",
+    "@babel/preset-react": "^7.0.0-beta.37"
   },
   "peerDependencies": {
-    "@babel/core": "7.0.0-beta.35"
+    "@babel/core": "7.0.0-beta.37"
   }
 }
