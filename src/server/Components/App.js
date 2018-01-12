@@ -7,10 +7,10 @@ import { create } from 'jss';
 import preset from 'jss-preset-default';
 import { hot } from 'react-hot-loader';
 import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
-import MuiThemeProviderWrapper from '../common/Components/MuiThemeProviderWrapper';
-import CommonApp from '../common/Components/App';
-import history from './history';
-import store from './store';
+import MuiThemeProviderWrapper from '../../common/Components/MuiThemeProviderWrapper';
+import CommonApp from '../../common/Components/App';
+import history from '../history';
+import store from '../store';
 
 const jss = create({
   ...preset(),

@@ -10,8 +10,7 @@ import {
   ServerSideJSS,
   PreloadedState,
 } from 'react-express-server';
-
-import App from './app';
+import App from './Components/App';
 import store from './store';
 
 export default (req, res, next) => {
