@@ -74,7 +74,7 @@ class Layout extends PureComponent {
               <MenuItem onClick={() => this.pushFromMenu('/hello')}>Hello</MenuItem>
             </Menu>
             <Typography type="title" color="inherit" className={this.props.classes.flex}>
-              Universal React App
+              Universal app HOT
             </Typography>
             <Button color="contrast">Login</Button>
           </Toolbar>

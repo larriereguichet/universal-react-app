@@ -1,4 +1,5 @@
 {
-  "presets": ["lag"],
+  "presets": [["lag", { "modules": false }]],
+  "plugins": ["react-hot-loader/babel"],
   "ignore": ["packages/*"]
 }

@@ -1,56 +1,24 @@
-import React from 'react';
-import { Provider as StoreProvider } from 'react-redux';
-import ReactServer from 'react-dom/server';
-import { replace } from 'react-router-redux';
-import { Helmet } from 'react-helmet';
-import {
-  HelmetHtml,
-  StaticRouter,
-  redirectHandler,
-  AppContainer,
-  ServerSideJSS,
-  PreloadedState,
-} from 'react-express-server';
-import { JssProvider } from 'react-jss';
-import { create, SheetsRegistry } from 'jss';
-import preset from 'jss-preset-default';
-import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
-import MuiThemeProviderWrapper from '../common/Components/MuiThemeProviderWrapper';
-import App from '../common/Components/App';
-import store from './store';
-import history from './history';
+/* eslint-disable global-require, import/no-extraneous-dependencies */
+import path from 'path';
+import reactExpress, { logger, staticHandler, notFoundHandler } from 'react-express-server';
+import hot from 'server-hot-loader';
+import appHandler from './appHandler';
+import { getPaths } from '../common/routes';
 
-export default (req, res, next) => {
-  const jss = create({
-    ...preset(),
-    createGenerateClassName,
-  });
-  const sheetsRegistry = new SheetsRegistry();
+const { npm_package_config_port: PORT, NODE_ENV } = process.env;
+const app = reactExpress();
 
-  store.dispatch(replace(req.url));
+app.use(staticHandler(path.resolve('./public'), { index: false }));
 
-  const html = ReactServer.renderToString(
-    <JssProvider jss={jss} registry={sheetsRegistry}>
-      <MuiThemeProviderWrapper sheetsManager={new Map()}>
-        <StoreProvider store={store}>
-          <StaticRouter history={history} context={req.context} location={req.url}>
-            <App />
-          </StaticRouter>
-        </StoreProvider>
-      </MuiThemeProviderWrapper>
-    </JssProvider>
-  );
+if (NODE_ENV !== 'production') {
+  const createMiddleware = require('react-dev-middleware').default;
 
-  redirectHandler(req, res, next);
+  app.use(createMiddleware(require('../../webpack.client.babel').default));
+}
 
-  return res.send(
-    ReactServer.renderToStaticMarkup(
-      <HelmetHtml helmet={Helmet.renderStatic()}>
-        <AppContainer html={html} />
-        <PreloadedState state={store.getState()} />
-        <ServerSideJSS sheetsRegistry={sheetsRegistry} />
-        <script type="text/javascript" src="client.js" />
-      </HelmetHtml>
-    )
-  );
-};
+app.use(getPaths, appHandler);
+app.use(notFoundHandler);
+
+hot(module)(app, logger).listen(PORT, () =>
+  logger.info(`Express server listening on port ${PORT}`)
+);

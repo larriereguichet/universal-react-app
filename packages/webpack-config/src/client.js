@@ -9,9 +9,10 @@ export default (env = {}) => {
   const { ifProduction, ifNotProduction } = getIfUtils(env);
 
   return {
+    name: 'client',
     cache: ifNotProduction(),
     devtool: ifNotProduction('cheap-module-eval-source-map'),
-    entry: resolve('./src/client/index.js'),
+    entry: [resolve('./src/client/index.js')],
     target: 'web',
     watch: false,
     stats: ifProduction('errors-only', 'minimal'),
@@ -45,7 +46,6 @@ export default (env = {}) => {
         'process.env.NODE_ENV': JSON.stringify(ifProduction('production', process.env.NODE_ENV)),
       }),
       ifProduction(new webpack.optimize.DedupePlugin()), // deduplicate similar code
-      ifProduction(new webpack.optimize.OccurrenceOrderPlugin()),
       ifProduction(new webpack.optimize.AggressiveMergingPlugin()), // merge chunks
       ifProduction(
         new UglifyJsPlugin({
@@ -58,6 +58,7 @@ export default (env = {}) => {
         })
       ),
       ifNotProduction(new webpack.HotModuleReplacementPlugin()),
+      ifNotProduction(new webpack.NamedModulesPlugin()),
       ifNotProduction(new webpack.NoEmitOnErrorsPlugin()),
     ]),
   };
