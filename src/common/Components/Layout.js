@@ -68,7 +68,7 @@ class Layout extends PureComponent {
                 horizontal: 'left',
               }}
               open={this.isMenuOpen}
-              onRequestClose={this.handleRequestClose}
+              onClose={this.handleRequestClose}
             >
               <MenuItem onClick={() => this.pushFromMenu('/')}>Home</MenuItem>
               <MenuItem onClick={() => this.pushFromMenu('/hello')}>Hello</MenuItem>
