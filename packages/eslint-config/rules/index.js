@@ -15,7 +15,7 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': [
-      'error',
+      'warn',
       {
         singleQuote: true,
         tabWidth: 2,
@@ -58,5 +58,6 @@ module.exports = {
       'warn',
       { devDependencies: ['**/test/*.js', '**/test/*.test.js', '**/*.spec.js'] },
     ],
+    'no-shadow': 'warn',
   },
 };

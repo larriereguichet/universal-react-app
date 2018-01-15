@@ -3,8 +3,4 @@ module.exports = {
   globals: {
     console: false,
   },
-  rules: {
-    'prettier/prettier': ['warn'],
-    'no-console': ['warn'],
-  },
 };
