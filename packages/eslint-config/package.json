@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-lag",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "Eslint configurations used @larriereguichet",
   "main": "index.js",
   "scripts": {

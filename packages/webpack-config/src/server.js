@@ -64,7 +64,6 @@ export default (env = {}) => {
       ifNotProduction(new StartServerPlugin('server.js')),
       ifNotProduction(new webpack.HotModuleReplacementPlugin()),
       ifNotProduction(new webpack.NoEmitOnErrorsPlugin()),
-      ifProduction(new webpack.optimize.DedupePlugin()),
     ]),
   };
 };
