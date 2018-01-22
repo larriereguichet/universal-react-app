@@ -18,6 +18,7 @@ module.exports = function() {
       require('@babel/plugin-proposal-object-rest-spread'),
       require('@babel/plugin-proposal-export-default-from'),
       require('@babel/plugin-proposal-export-namespace-from'),
+      require('babel-plugin-lodash'),
     ],
   };
 };

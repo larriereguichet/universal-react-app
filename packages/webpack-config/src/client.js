@@ -4,6 +4,7 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import extractPackageConfig from 'extract-npm-package-config';
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 
 export default (env = {}) => {
   const { ifProduction, ifNotProduction } = getIfUtils(env);
@@ -45,7 +46,6 @@ export default (env = {}) => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(ifProduction('production', process.env.NODE_ENV)),
       }),
-      ifProduction(new webpack.optimize.AggressiveMergingPlugin()), // merge chunks
       ifProduction(
         new UglifyJsPlugin({
           uglifyOptions: {
@@ -56,6 +56,10 @@ export default (env = {}) => {
           sourceMap: false,
         })
       ),
+      ifProduction(new webpack.optimize.AggressiveMergingPlugin()), // merge chunks
+      ifProduction(new webpack.optimize.ModuleConcatenationPlugin()), // scope hoisting
+      ifProduction(new webpack.HashedModuleIdsPlugin()), // scope hoisting
+      ifProduction(new LodashModuleReplacementPlugin()),
       ifNotProduction(new webpack.HotModuleReplacementPlugin()),
       ifNotProduction(new webpack.NamedModulesPlugin()),
       ifNotProduction(new webpack.NoEmitOnErrorsPlugin()),

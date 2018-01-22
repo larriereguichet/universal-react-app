@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "2.1.5",
+  "version": "2.1.7",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -31,7 +31,7 @@
     "@babel/register": "^7.0.0-beta.37",
     "babel-eslint": "^8.0.2",
     "babel-loader": "^8.0.0-beta.0",
-    "babel-preset-lag": "^2.1.5",
+    "babel-preset-lag": "^2.1.7",
     "eslint": "^4.12.0",
     "eslint-config-lag": "0.0.9",
     "eslint-loader": "^1.9.0",
@@ -39,10 +39,10 @@
     "mocha": "^4.1.0",
     "prettier": "^1.9.2",
     "prettier-eslint-cli": "^4.4.0",
-    "react-dev-middleware": "^2.1.5",
+    "react-dev-middleware": "^2.1.7",
     "redux-logger": "^3.0.6",
     "webpack": "^3.10.0",
-    "webpack-config-lag": "^2.1.5"
+    "webpack-config-lag": "^2.1.7"
   },
   "dependencies": {
     "dom-remove": "^1.1.0",
@@ -54,7 +54,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.1.1",
-    "react-express-server": "^2.1.5",
+    "react-express-server": "^2.1.7",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "next",
     "react-jss": "^8.1.0",
@@ -65,7 +65,7 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "reset-jss": "^1.0.0",
-    "server-hot-loader": "^2.1.5",
+    "server-hot-loader": "^2.1.7",
     "typeface-roboto": "0.0.45"
   }
 }
