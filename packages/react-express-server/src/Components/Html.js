@@ -27,9 +27,11 @@ class Html extends PureComponent {
     link: [],
     style: [],
     script: [],
+    title: [],
   };
 
   render() {
+    console.log('this.props', this.props);
     return (
       <html {...this.props.htmlAttributes}>
         <head>

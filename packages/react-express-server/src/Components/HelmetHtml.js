@@ -15,11 +15,15 @@ class HelmetHtml extends PureComponent {
   };
 
   get components() {
-    return Object.keys(this.props.helmet).map(key => this.props.helmet[key].toComponent());
+    return Object.keys(this.props.helmet).reduce((components, key) => {
+      components[key] = this.props.helmet[key].toComponent();
+
+      return components;
+    }, {});
   }
 
   render() {
-    return <Html {...this.helmetComponents}>{this.props.children}</Html>;
+    return <Html {...this.components}>{this.props.children}</Html>;
   }
 }
 

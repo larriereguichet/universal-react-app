@@ -59,7 +59,7 @@ The ES6 syntax is used throughout the project along with some ES7 proposals.
 The source of this app are available under `src/` and are split between 3 directories, `client`, `common` and `server`:
 ```
 ├── client
-│   ├── Components
+│   ├── Components/App.js
 │   ├── index.js
 │   ├── store.js
 │   └── history.js
@@ -74,10 +74,8 @@ The source of this app are available under `src/` and are split between 3 direct
 │   ├── theme.js
 │   └── routes.js
 └── server
-    ├── handlers
-    ├── logger
-    ├── middlewares
-    ├── renderers
+    ├── Components/App.js
+    ├── appHandler.js
     ├── index.js
     ├── store.js
     └── history.js
