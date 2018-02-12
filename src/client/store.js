@@ -5,7 +5,7 @@ import history from './history';
 import configureStore from '../common/configureStore';
 
 const middlewares = [];
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   middlewares.push(createLogger());
 }
 middlewares.push(routerMiddleware(history));
