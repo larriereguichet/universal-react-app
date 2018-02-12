@@ -39,6 +39,10 @@ class Home extends PureComponent {
 }
 
 export default compose(
-  connect(state => ({ counter: getCounter(state) }), { push, increment, decrement }),
+  connect(state => ({ counter: getCounter(state) }), {
+    push,
+    increment,
+    decrement,
+  }),
   withStyles(styles)
 )(Home);

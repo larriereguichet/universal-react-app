@@ -32,12 +32,12 @@ class Counter extends PureComponent {
           Clicked: {this.props.counter} times
         </Grid>
         <Grid item xs={12}>
-          <Button onClick={this.props.increment} raised>
+          <Button onClick={this.props.increment} variant="raised">
             +
-          </Button>{' '}
-          <Button onClick={this.props.decrement} raised>
+          </Button>
+          <Button onClick={this.props.decrement} variant="raised">
             -
-          </Button>{' '}
+          </Button>
           <Button onClick={this.incrementIfOdd}>Increment if odd</Button>{' '}
           <Button onClick={() => this.incrementAsync()}>Increment async</Button>
         </Grid>

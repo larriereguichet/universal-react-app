@@ -7,7 +7,9 @@ const ServerSideJSS = ({ id, sheetsRegistry, ...rest }) => (
   <style
     {...rest}
     id={id}
-    dangerouslySetInnerHTML={{ __html: sqwish.minify(sheetsRegistry.toString()) }}
+    dangerouslySetInnerHTML={{
+      __html: sqwish.minify(sheetsRegistry.toString()),
+    }}
   />
 );
 

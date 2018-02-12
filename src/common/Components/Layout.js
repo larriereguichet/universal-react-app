@@ -48,7 +48,7 @@ class Layout extends PureComponent {
           <Toolbar>
             <IconButton
               className={this.props.classes.menuButton}
-              color="contrast"
+              color="inherit"
               aria-label="Menu"
               aria-owns={this.isMenuOpen ? 'menu-appbar' : null}
               aria-haspopup="true"
@@ -73,10 +73,10 @@ class Layout extends PureComponent {
               <MenuItem onClick={() => this.pushFromMenu('/')}>Home</MenuItem>
               <MenuItem onClick={() => this.pushFromMenu('/hello')}>Hello</MenuItem>
             </Menu>
-            <Typography type="title" color="inherit" className={this.props.classes.flex}>
+            <Typography variant="title" color="inherit" className={this.props.classes.flex}>
               Universal app HOT
             </Typography>
-            <Button color="contrast">Login</Button>
+            <Button color="primary">Login</Button>
           </Toolbar>
         </AppBar>
         <Grid container className={this.props.classes.root} justify="center">
