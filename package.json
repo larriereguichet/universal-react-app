@@ -27,8 +27,8 @@
   "author": "lutangar <johan.dufour@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.39",
-    "@babel/register": "^7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/register": "^7.0.0-beta.40",
     "babel-eslint": "^8.0.2",
     "babel-loader": "^8.0.0-beta.0",
     "babel-preset-lag": "^2.2.0",
