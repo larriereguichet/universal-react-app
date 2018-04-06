@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -31,9 +31,9 @@
     "@babel/register": "^7.0.0-beta.44",
     "babel-eslint": "^8.0.2",
     "babel-loader": "^8.0.0-beta.0",
-    "babel-preset-lag": "^2.5.0",
+    "babel-preset-lag": "^2.5.2",
     "eslint": "^4.18.0",
-    "eslint-config-lag": "^2.5.0",
+    "eslint-config-lag": "^2.5.2",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
@@ -45,10 +45,10 @@
     "mocha": "^5.0.0",
     "prettier": "^1.9.2",
     "prettier-eslint-cli": "^4.4.0",
-    "react-dev-middleware": "^2.5.0",
+    "react-dev-middleware": "^2.5.2",
     "redux-logger": "^3.0.6",
     "webpack": "^3.10.0",
-    "webpack-config-lag": "^2.5.0"
+    "webpack-config-lag": "^2.5.2"
   },
   "dependencies": {
     "history": "^4.7.2",
@@ -59,7 +59,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-express-server": "^2.5.0",
+    "react-express-server": "^2.5.2",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "next",
     "react-jss": "^8.1.0",
@@ -71,7 +71,7 @@
     "redux-actions": "^2.2.1",
     "remove-element": "0.0.0",
     "reset-jss": "^1.0.0",
-    "server-hot-loader": "^2.5.1",
+    "server-hot-loader": "^2.5.2",
     "typeface-roboto": "0.0.54"
   }
 }
