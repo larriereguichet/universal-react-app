@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Universal react app counter example",
   "main": "src/server/index.js",
   "config": {
@@ -71,7 +71,7 @@
     "redux-actions": "^2.2.1",
     "remove-element": "0.0.0",
     "reset-jss": "^1.0.0",
-    "server-hot-loader": "^2.5.0",
+    "server-hot-loader": "^2.5.1",
     "typeface-roboto": "0.0.54"
   }
 }

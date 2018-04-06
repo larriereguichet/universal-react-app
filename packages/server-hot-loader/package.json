@@ -1,6 +1,6 @@
 {
   "name": "server-hot-loader",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Hot reload decorator for express servers and such",
   "main": "lib/index.js",
   "module": "es/index.js",
