@@ -24,9 +24,11 @@
   },
   "homepage": "https://github.com/larriereguichet/universal-react-app/tree/master/packages/react-dev-middleware#readme",
   "dependencies": {
+    "koa-webpack": "^2.0.3",
     "lodash.isfunction": "^3.0.8",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.1",
+    "webpack-hot-client": "^1.2.5",
     "webpack-hot-middleware": "^2.21.0"
   },
   "devDependencies": {

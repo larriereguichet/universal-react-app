@@ -57,8 +57,8 @@
     "material-ui": "^1.0.0-beta.27",
     "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.1.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "react-express-server": "^2.3.0",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "next",
@@ -72,6 +72,7 @@
     "remove-element": "0.0.0",
     "reset-jss": "^1.0.0",
     "server-hot-loader": "^2.3.0",
-    "typeface-roboto": "0.0.54"
+    "typeface-roboto": "0.0.54",
+    "webpack-hot-client": "^1.2.5"
   }
 }

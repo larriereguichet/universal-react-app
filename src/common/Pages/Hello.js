@@ -27,7 +27,7 @@ class Hello extends PureComponent {
         </Helmet>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            The counter state is currently {this.props.counter}
+            The counter state is currently caca {this.props.counter}
           </Grid>
         </Grid>
       </Layout>

@@ -10,7 +10,8 @@ const app = reactExpress();
 
 app.use(staticHandler(path.resolve('./public'), { index: false }));
 
-if (process.env.NODE_ENV === 'development') {
+console.log('NODE_ENV', NODE_ENV);
+if (NODE_ENV === 'development') {
   const createMiddleware = require('react-dev-middleware').default;
 
   app.use(createMiddleware(require('../../webpack.client.babel').default));
